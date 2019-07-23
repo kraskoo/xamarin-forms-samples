@@ -1,10 +1,10 @@
-﻿using Xamarin.Forms;
-
-namespace CarouselPageNavigation
+﻿namespace CarouselPageNavigation
 {
-    public class MainPageCS : CarouselPage
+    using Xamarin.Forms;
+
+    public class MainPageCs : CarouselPage
     {
-        public MainPageCS()
+        public MainPageCs()
         {
             Thickness padding;
             switch (Device.RuntimePlatform)
@@ -23,13 +23,16 @@ namespace CarouselPageNavigation
                 Padding = padding,
                 Content = new StackLayout
                 {
-                    Children = {
-                        new Label {
+                    Children =
+                    {
+                        new Label
+                        {
                             Text = "Red",
-                            FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label)),
+                            FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                             HorizontalOptions = LayoutOptions.Center
                         },
-                        new BoxView {
+                        new BoxView
+                        {
                             Color = Color.Red,
                             WidthRequest = 200,
                             HeightRequest = 200,
@@ -44,13 +47,16 @@ namespace CarouselPageNavigation
                 Padding = padding,
                 Content = new StackLayout
                 {
-                    Children = {
-                        new Label {
+                    Children =
+                    {
+                        new Label
+                        {
                             Text = "Green",
-                            FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label)),
+                            FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                             HorizontalOptions = LayoutOptions.Center
                         },
-                        new BoxView {
+                        new BoxView
+                        {
                             Color = Color.Green,
                             WidthRequest = 200,
                             HeightRequest = 200,
@@ -65,13 +71,16 @@ namespace CarouselPageNavigation
                 Padding = padding,
                 Content = new StackLayout
                 {
-                    Children = {
-                        new Label {
+                    Children =
+                    {
+                        new Label
+                        {
                             Text = "Blue",
-                            FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label)),
+                            FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
                             HorizontalOptions = LayoutOptions.Center
                         },
-                        new BoxView {
+                        new BoxView
+                        {
                             Color = Color.Blue,
                             WidthRequest = 200,
                             HeightRequest = 200,
@@ -82,9 +91,9 @@ namespace CarouselPageNavigation
                 }
             };
 
-            Children.Add(redContentPage);
-            Children.Add(greenContentPage);
-            Children.Add(blueContentPage);
+            this.Children.Add(redContentPage);
+            this.Children.Add(greenContentPage);
+            this.Children.Add(blueContentPage);
         }
     }
 }

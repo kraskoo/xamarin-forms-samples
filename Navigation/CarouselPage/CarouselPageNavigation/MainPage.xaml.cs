@@ -1,13 +1,12 @@
-﻿using Xamarin.Forms;
-
-namespace CarouselPageNavigation
+﻿namespace CarouselPageNavigation
 {
-	public partial class MainPage : CarouselPage
-	{
-		public MainPage ()
-		{
-			InitializeComponent ();
-		}
-	}
-}
+    using Xamarin.Forms;
 
+    public partial class MainPage : CarouselPage
+    {
+        public MainPage()
+        {
+            this.InitializeComponent();
+        }
+    }
+}

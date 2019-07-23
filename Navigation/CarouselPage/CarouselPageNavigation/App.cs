@@ -1,14 +1,16 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
+
 namespace CarouselPageNavigation
 {
+    using Xamarin.Forms;
+
     public class App : Application
     {
         public App()
         {
-            MainPage = new CarouselPageNavigation.MainPage();
+            this.MainPage = new MainPage();
         }
 
         protected override void OnStart()
