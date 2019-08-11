@@ -1,18 +1,18 @@
-﻿using Xamarin.Forms;
-
-namespace TabbedPageWithNavigationPage
+﻿namespace TabbedPageWithNavigationPage
 {
-	public class MainPageCS : TabbedPage
-	{
-		public MainPageCS ()
-		{
-			var navigationPage = new NavigationPage (new SchedulePageCS ());
-			navigationPage.IconImageSource = "schedule.png";
-			navigationPage.Title = "Schedule";
+    using Xamarin.Forms;
 
-			Children.Add (new TodayPageCS ());
-			Children.Add (navigationPage);
-			Children.Add (new SettingsPage ());
-		}
-	}
+    public class MainPageCS : TabbedPage
+    {
+        public MainPageCS()
+        {
+            var navigationPage = new NavigationPage(new SchedulePageCS());
+            navigationPage.IconImageSource = "schedule.png";
+            navigationPage.Title = "Schedule";
+
+            this.Children.Add(new TodayPageCS());
+            this.Children.Add(navigationPage);
+            this.Children.Add(new SettingsPage());
+        }
+    }
 }

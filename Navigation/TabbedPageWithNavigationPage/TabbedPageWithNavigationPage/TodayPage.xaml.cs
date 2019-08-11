@@ -1,13 +1,12 @@
-﻿using Xamarin.Forms;
-
-namespace TabbedPageWithNavigationPage
+﻿namespace TabbedPageWithNavigationPage
 {
-	public partial class TodayPage : ContentPage
-	{
-		public TodayPage ()
-		{
-			InitializeComponent ();
-		}
-	}
-}
+    using Xamarin.Forms;
 
+    public partial class TodayPage : ContentPage
+    {
+        public TodayPage()
+        {
+            this.InitializeComponent();
+        }
+    }
+}

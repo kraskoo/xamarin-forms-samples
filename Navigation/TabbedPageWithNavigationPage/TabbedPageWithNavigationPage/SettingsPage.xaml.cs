@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
-
-namespace TabbedPageWithNavigationPage
+﻿namespace TabbedPageWithNavigationPage
 {
-	public partial class SettingsPage : ContentPage
-	{
-		public SettingsPage ()
-		{
-			InitializeComponent ();
-		}
-	}
-}
+    using Xamarin.Forms;
 
+    public partial class SettingsPage : ContentPage
+    {
+        public SettingsPage()
+        {
+            this.InitializeComponent();
+        }
+    }
+}

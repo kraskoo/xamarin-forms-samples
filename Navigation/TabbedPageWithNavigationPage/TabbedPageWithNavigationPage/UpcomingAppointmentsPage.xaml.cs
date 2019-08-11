@@ -1,19 +1,19 @@
-﻿using System;
-using Xamarin.Forms;
-
-namespace TabbedPageWithNavigationPage
+﻿namespace TabbedPageWithNavigationPage
 {
-	public partial class UpcomingAppointmentsPage : ContentPage
-	{
-		public UpcomingAppointmentsPage ()
-		{
-			InitializeComponent ();
-		}
+    using System;
 
-		async void OnBackButtonClicked (object sender, EventArgs e)
-		{
-			await Navigation.PopAsync ();
-		}
-	}
+    using Xamarin.Forms;
+
+    public partial class UpcomingAppointmentsPage : ContentPage
+    {
+        public UpcomingAppointmentsPage()
+        {
+            this.InitializeComponent();
+        }
+
+        private async void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PopAsync();
+        }
+    }
 }
-

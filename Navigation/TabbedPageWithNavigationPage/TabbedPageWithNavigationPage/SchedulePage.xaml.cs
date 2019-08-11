@@ -1,19 +1,19 @@
-﻿using System;
-using Xamarin.Forms;
-
-namespace TabbedPageWithNavigationPage
+﻿namespace TabbedPageWithNavigationPage
 {
-	public partial class SchedulePage : ContentPage
-	{
-		public SchedulePage ()
-		{
-			InitializeComponent ();
-		}
+    using System;
 
-		async void OnUpcomingAppointmentsButtonClicked (object sender, EventArgs e)
-		{
-			await Navigation.PushAsync (new UpcomingAppointmentsPage ());
-		}
-	}
+    using Xamarin.Forms;
+
+    public partial class SchedulePage : ContentPage
+    {
+        public SchedulePage()
+        {
+            this.InitializeComponent();
+        }
+
+        private async void OnUpcomingAppointmentsButtonClicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PushAsync(new UpcomingAppointmentsPage());
+        }
+    }
 }
-

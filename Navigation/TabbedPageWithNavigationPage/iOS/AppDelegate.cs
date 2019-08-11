@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
-using UIKit;
-
-namespace TabbedPageWithNavigationPage.iOS
+﻿namespace TabbedPageWithNavigationPage.iOS
 {
-	[Register ("AppDelegate")]
-	public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
-	{
-		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
-		{
-			global::Xamarin.Forms.Forms.Init ();
+    using Foundation;
 
-			LoadApplication (new App ());
+    using UIKit;
 
-			return base.FinishedLaunching (app, options);
-		}
-	}
+    using Xamarin.Forms;
+    using Xamarin.Forms.Platform.iOS;
+
+    [Register("AppDelegate")]
+    public partial class AppDelegate : FormsApplicationDelegate
+    {
+        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        {
+            Forms.Init();
+
+            this.LoadApplication(new App());
+
+            return base.FinishedLaunching(app, options);
+        }
+    }
 }
-

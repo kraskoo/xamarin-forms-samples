@@ -1,34 +1,35 @@
-﻿using System;
-using Xamarin.Forms;
-
-namespace TabbedPageWithNavigationPage
+﻿namespace TabbedPageWithNavigationPage
 {
-	public class UpcomingAppointmentsPageCS : ContentPage
-	{
-		public UpcomingAppointmentsPageCS ()
-		{
-			var button = new Button {
-				Text = "Back",
-				VerticalOptions = LayoutOptions.CenterAndExpand
-			};
-			button.Clicked += OnBackButtonClicked;
+    using System;
 
-			Title = "Upcoming";
-			Content = new StackLayout { 
-				Children = {
-					new Label {
-						Text = "Upcoming appointments go here",
-						HorizontalOptions = LayoutOptions.Center,
-						VerticalOptions = LayoutOptions.CenterAndExpand
-					},
-					button
-				}
-			};
-		}
+    using Xamarin.Forms;
 
-		async void OnBackButtonClicked (object sender, EventArgs e)
-		{
-			await Navigation.PopAsync ();
-		}
-	}
+    public class UpcomingAppointmentsPageCS : ContentPage
+    {
+        public UpcomingAppointmentsPageCS()
+        {
+            var button = new Button { Text = "Back", VerticalOptions = LayoutOptions.CenterAndExpand };
+            button.Clicked += this.OnBackButtonClicked;
+
+            this.Title = "Upcoming";
+            this.Content = new StackLayout
+                               {
+                                   Children =
+                                       {
+                                           new Label
+                                               {
+                                                   Text = "Upcoming appointments go here",
+                                                   HorizontalOptions = LayoutOptions.Center,
+                                                   VerticalOptions = LayoutOptions.CenterAndExpand
+                                               },
+                                           button
+                                       }
+                               };
+        }
+
+        private async void OnBackButtonClicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PopAsync();
+        }
+    }
 }

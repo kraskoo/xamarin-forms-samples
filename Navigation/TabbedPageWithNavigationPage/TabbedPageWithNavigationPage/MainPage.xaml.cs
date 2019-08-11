@@ -1,13 +1,12 @@
-﻿using Xamarin.Forms;
-
-namespace TabbedPageWithNavigationPage
+﻿namespace TabbedPageWithNavigationPage
 {
-	public partial class MainPage : TabbedPage
-	{
-		public MainPage ()
-		{
-			InitializeComponent ();
-		}
-	}
-}
+    using Xamarin.Forms;
 
+    public partial class MainPage : TabbedPage
+    {
+        public MainPage()
+        {
+            this.InitializeComponent();
+        }
+    }
+}

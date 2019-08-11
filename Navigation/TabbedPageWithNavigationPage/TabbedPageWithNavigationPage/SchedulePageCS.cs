@@ -1,34 +1,35 @@
-﻿using System;
-using Xamarin.Forms;
-
-namespace TabbedPageWithNavigationPage
+﻿namespace TabbedPageWithNavigationPage
 {
-	public class SchedulePageCS : ContentPage
-	{
-		public SchedulePageCS ()
-		{
-			var button = new Button {
-				Text = "Upcoming Appointments",
-				VerticalOptions = LayoutOptions.CenterAndExpand
-			};
-			button.Clicked += OnUpcomingAppointmentsButtonClicked;
+    using System;
 
-			Title = "This Week";
-			Content = new StackLayout {
-				Children = {
-					new Label {
-						Text = "This week's appointments go here",
-						HorizontalOptions = LayoutOptions.Center,
-						VerticalOptions = LayoutOptions.CenterAndExpand
-					},
-					button
-				}	
-			};
-		}
+    using Xamarin.Forms;
 
-		async void OnUpcomingAppointmentsButtonClicked (object sender, EventArgs e)
-		{
-			await Navigation.PushAsync (new UpcomingAppointmentsPage ());
-		}
-	}
+    public class SchedulePageCS : ContentPage
+    {
+        public SchedulePageCS()
+        {
+            var button = new Button { Text = "Upcoming Appointments", VerticalOptions = LayoutOptions.CenterAndExpand };
+            button.Clicked += this.OnUpcomingAppointmentsButtonClicked;
+
+            this.Title = "This Week";
+            this.Content = new StackLayout
+                               {
+                                   Children =
+                                       {
+                                           new Label
+                                               {
+                                                   Text = "This week's appointments go here",
+                                                   HorizontalOptions = LayoutOptions.Center,
+                                                   VerticalOptions = LayoutOptions.CenterAndExpand
+                                               },
+                                           button
+                                       }
+                               };
+        }
+
+        private async void OnUpcomingAppointmentsButtonClicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PushAsync(new UpcomingAppointmentsPage());
+        }
+    }
 }
