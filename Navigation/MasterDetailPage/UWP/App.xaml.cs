@@ -2,11 +2,14 @@
 {
     using System;
     using System.Diagnostics;
+
     using Windows.ApplicationModel;
     using Windows.ApplicationModel.Activation;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Navigation;
+
     using Xamarin.Forms;
+
     using Application = Windows.UI.Xaml.Application;
     using Frame = Windows.UI.Xaml.Controls.Frame;
 
@@ -22,7 +25,7 @@
         public App()
         {
             this.InitializeComponent();
-            Suspending += this.OnSuspending;
+            this.Suspending += this.OnSuspending;
         }
 
         /// <summary>
@@ -37,6 +40,7 @@
             {
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
+
 #endif
 
             // Do not repeat app initialization when the Window already has content,
@@ -49,7 +53,7 @@
                 Forms.Init(e);
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: Load state from previously suspended application
+                    // TODO: Load state from previously suspended application
                 }
 
                 // Place the frame in the current Window
@@ -88,7 +92,8 @@
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: Save application state and stop any background activity
+
+            // TODO: Save application state and stop any background activity
             deferral.Complete();
         }
     }

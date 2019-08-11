@@ -1,6 +1,7 @@
 ﻿namespace MasterDetailPageNavigation
 {
     using System;
+
     using Xamarin.Forms;
 
     public class MainPageCs : MasterDetailPage
@@ -15,7 +16,10 @@
 
             this.masterPage.ListView.ItemSelected += this.OnItemSelected;
 
-            if (Device.RuntimePlatform == Device.UWP) this.MasterBehavior = MasterBehavior.Popover;
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                this.MasterBehavior = MasterBehavior.Popover;
+            }
         }
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -23,7 +27,7 @@
             var item = e.SelectedItem as MasterPageItem;
             if (item != null)
             {
-                this.Detail = new NavigationPage((Page) Activator.CreateInstance(item.TargetType));
+                this.Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
                 this.masterPage.ListView.SelectedItem = null;
                 this.IsPresented = false;
             }

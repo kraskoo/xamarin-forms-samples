@@ -1,6 +1,7 @@
 ﻿namespace MasterDetailPageNavigation
 {
     using System;
+
     using Xamarin.Forms;
 
     public partial class MainPage : MasterDetailPage
@@ -22,7 +23,7 @@
                 return;
             }
 
-            this.Detail = new NavigationPage((Page) Activator.CreateInstance(item.TargetType));
+            this.Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
             this.masterPage.listView.SelectedItem = null;
             this.IsPresented = false;
         }
