@@ -1,24 +1,25 @@
-﻿using System;
-using System.Windows.Input;
-using Xamarin.Forms;
-
-namespace NavigationPageTitleView
+﻿namespace NavigationPageTitleView
 {
+    using System;
+    using System.Windows.Input;
+
+    using Xamarin.Forms;
+
     public partial class iOSExtendedTitleViewPage : ContentPage
     {
-        ICommand _returnToMenuPage;
+        private readonly ICommand returnToMenuPage;
 
         public iOSExtendedTitleViewPage(ICommand restore)
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
-            _returnToMenuPage = restore;
-            _searchBar.Effects.Add(Effect.Resolve("XamarinDocs.SearchBarEffect"));
+            this.returnToMenuPage = restore;
+            this._searchBar.Effects.Add(Effect.Resolve("XamarinDocs.SearchBarEffect"));
         }
 
-        void OnReturnButtonClicked(object sender, EventArgs e)
+        private void OnReturnButtonClicked(object sender, EventArgs e)
         {
-            _returnToMenuPage.Execute(null);
+            this.returnToMenuPage.Execute(null);
         }
     }
 }

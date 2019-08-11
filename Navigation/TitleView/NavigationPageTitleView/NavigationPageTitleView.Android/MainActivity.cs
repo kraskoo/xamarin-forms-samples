@@ -1,16 +1,19 @@
-﻿using System;
-
-using Android.App;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Android.OS;
-
-namespace NavigationPageTitleView.Droid
+﻿namespace NavigationPageTitleView.Droid
 {
-    [Activity(Label = "NavigationPageTitleView", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    using Android.App;
+    using Android.Content.PM;
+    using Android.OS;
+
+    using Xamarin.Forms;
+    using Xamarin.Forms.Platform.Android;
+
+    [Activity(
+        Label = "NavigationPageTitleView",
+        Icon = "@mipmap/icon",
+        Theme = "@style/MainTheme",
+        MainLauncher = true,
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -19,9 +22,8 @@ namespace NavigationPageTitleView.Droid
 
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+            Forms.Init(this, bundle);
+            this.LoadApplication(new App());
         }
     }
 }
-

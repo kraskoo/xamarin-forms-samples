@@ -1,36 +1,45 @@
-﻿using UIKit;
+﻿using NavigationPageTitleView.iOS;
+
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
-using NavigationPageTitleView.iOS;
 
 [assembly: ResolutionGroupName("XamarinDocs")]
 [assembly: ExportEffect(typeof(SearchBarEffect), "SearchBarEffect")]
+
 namespace NavigationPageTitleView.iOS
 {
+    using UIKit;
+
+    using Xamarin.Forms.Platform.iOS;
+
     public class SearchBarEffect : PlatformEffect
     {
-        UIColor _defaultBackColor;
-        UIColor _defaultTintColor;
-        UIImage _defaultBackImage;
+        private UIColor _defaultBackColor;
+
+        private UIImage _defaultBackImage;
+
+        private UIColor _defaultTintColor;
 
         protected override void OnAttached()
         {
-            if (_defaultBackColor == null)
+            if (this._defaultBackColor == null)
             {
-                _defaultBackColor = Control.BackgroundColor;
+                this._defaultBackColor = this.Control.BackgroundColor;
             }
-            Control.BackgroundColor = Color.Cornsilk.ToUIColor();
 
-            if (Control is UISearchBar searchBar)
+            this.Control.BackgroundColor = Color.Cornsilk.ToUIColor();
+
+            if (this.Control is UISearchBar searchBar)
             {
-                if (_defaultTintColor == null)
+                if (this._defaultTintColor == null)
                 {
-                    _defaultTintColor = searchBar.BarTintColor;
+                    this._defaultTintColor = searchBar.BarTintColor;
                 }
-                if (_defaultBackImage == null)
+
+                if (this._defaultBackImage == null)
                 {
-                    _defaultBackImage = searchBar.BackgroundImage;
+                    this._defaultBackImage = searchBar.BackgroundImage;
                 }
+
                 searchBar.BarTintColor = Color.Cornsilk.ToUIColor();
                 searchBar.BackgroundImage = new UIImage();
             }
@@ -38,11 +47,11 @@ namespace NavigationPageTitleView.iOS
 
         protected override void OnDetached()
         {
-            Control.BackgroundColor = _defaultBackColor;
-            if (Control is UISearchBar searchBar)
+            this.Control.BackgroundColor = this._defaultBackColor;
+            if (this.Control is UISearchBar searchBar)
             {
-                searchBar.BarTintColor = _defaultTintColor;
-                searchBar.BackgroundImage = _defaultBackImage;
+                searchBar.BarTintColor = this._defaultTintColor;
+                searchBar.BackgroundImage = this._defaultBackImage;
             }
         }
     }

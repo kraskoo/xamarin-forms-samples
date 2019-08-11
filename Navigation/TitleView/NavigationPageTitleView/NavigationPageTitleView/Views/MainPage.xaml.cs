@@ -1,33 +1,32 @@
-﻿using System;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Xamarin.Forms;
-
-namespace NavigationPageTitleView
+﻿namespace NavigationPageTitleView
 {
-	public partial class MainPage : ContentPage
-	{
-        Page _originalRoot;
+    using System;
+    using System.Threading.Tasks;
+    using System.Windows.Input;
 
-        public ICommand NavigateCommand { get; private set; }
+    using Xamarin.Forms;
 
-        
-		public MainPage()
-		{
-			InitializeComponent();
+    public partial class MainPage : ContentPage
+    {
+        private Page originalRoot;
 
-            NavigateCommand = new Command<Type>(async (pageType) => await NavigateToPage(pageType));
-            BindingContext = this;
-		}
-
-        async Task NavigateToPage(Type pageType)
+        public MainPage()
         {
-            Type[] types = new Type[] { typeof(Command) };
-            ConstructorInfo info = pageType.GetConstructor(types);
+            this.InitializeComponent();
+
+            this.NavigateCommand = new Command<Type>(async pageType => await this.NavigateToPage(pageType));
+            this.BindingContext = this;
+        }
+
+        public ICommand NavigateCommand { get; }
+
+        private async Task NavigateToPage(Type pageType)
+        {
+            Type[] types = { typeof(Command) };
+            var info = pageType.GetConstructor(types);
             if (info != null)
             {
-                Page page = (Page)Activator.CreateInstance(pageType, new Command(RestoreOriginal));
+                var page = (Page)Activator.CreateInstance(pageType, new Command(this.RestoreOriginal));
                 if (page is iOSExtendedTitleViewPage)
                 {
                     page = new iOSNavigationPage(page);
@@ -36,16 +35,28 @@ namespace NavigationPageTitleView
                 {
                     page = new AndroidNavigationPage(page);
                 }
-                SetRoot(page);
+
+                this.SetRoot(page);
             }
             else
             {
-                Page page = (Page)Activator.CreateInstance(pageType);
-                await Navigation.PushAsync(page);
+                var page = (Page)Activator.CreateInstance(pageType);
+                await this.Navigation.PushAsync(page);
             }
         }
 
-        void SetRoot(Page page)
+        private void RestoreOriginal()
+        {
+            if (this.originalRoot == null)
+            {
+                return;
+            }
+
+            var app = Application.Current as App;
+            app?.SetMainPage(this.originalRoot);
+        }
+
+        private void SetRoot(Page page)
         {
             var app = Application.Current as App;
             if (app == null)
@@ -53,19 +64,8 @@ namespace NavigationPageTitleView
                 return;
             }
 
-            _originalRoot = app.MainPage;
+            this.originalRoot = app.MainPage;
             app.SetMainPage(page);
         }
-
-        void RestoreOriginal()
-        {
-            if (_originalRoot == null)
-            {
-                return;
-            }
-
-            var app = Application.Current as App;
-            app?.SetMainPage(_originalRoot);
-        }
-	}
+    }
 }

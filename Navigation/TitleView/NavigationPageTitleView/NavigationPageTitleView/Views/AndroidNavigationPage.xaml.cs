@@ -1,13 +1,13 @@
-﻿using Xamarin.Forms;
-
-namespace NavigationPageTitleView
+﻿namespace NavigationPageTitleView
 {
+    using Xamarin.Forms;
+
     public partial class AndroidNavigationPage : NavigationPage
     {
         public AndroidNavigationPage(Page page)
         {
-            InitializeComponent();
-            PushAsync(page);
+            this.InitializeComponent();
+            this.PushAsync(page);
         }
     }
 }
